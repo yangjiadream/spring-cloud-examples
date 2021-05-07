@@ -2,4 +2,4 @@ server:
   port: 8002
 spring:
   application:
-    name: provider
+    name: service-provider
