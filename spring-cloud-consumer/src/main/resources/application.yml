@@ -2,4 +2,4 @@ server:
   port: 8000
 spring:
   application:
-    name: consumer
+    name: springcloud-consumer

@@ -15,6 +15,6 @@ public class MessageController {
 
     @GetMapping("/getMessage")
     public String getMessage(@RequestParam(value = "name", defaultValue = "yangjia", required = false) String name) {
-        return "service-provider1:" + name + message;
+        return "service-provider1:hello " + name + "  this is " + message;
     }
 }
