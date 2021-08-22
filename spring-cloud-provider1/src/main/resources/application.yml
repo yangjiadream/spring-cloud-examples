@@ -3,3 +3,14 @@ server:
 spring:
   application:
     name: springcloud-serviceprovider
+  datasource:
+    url: jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+mybatis:
+  mapper-locations: classpath:mappers/*.xml

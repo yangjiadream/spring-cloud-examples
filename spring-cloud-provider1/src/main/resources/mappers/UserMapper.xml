@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springcloudprovider1.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.example.springcloudprovider1.dao.UserDao">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userName" jdbcType="VARCHAR" property="userName" />
+        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+    </resultMap>
+
+    <select id="getAllUser" resultType="com.example.springcloudprovider1.entity.User">
+        select * from user
+    </select>
+
+    <select id="SelectUserById" resultType="com.example.springcloudprovider1.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+    <insert id="addUser"  keyProperty="id" useGeneratedKeys="true">
+        insert into user (userName,passWord) values (#{userName},#{passWord});
+    </insert>
+
+    <update id="updateUserById" parameterType="com.example.springcloudprovider1.entity.User">
+        update user
+        <set>
+            <if test="userName != null">userName = #{userName},</if>
+            <if test="passWord != null">passWord = #{passWord}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
